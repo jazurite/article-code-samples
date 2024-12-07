@@ -31,6 +31,8 @@
 
       el.insertAdjacentHTML("beforeend", `<p>navigator.webdriver: ${navigator.webdriver}</p>`)
 
+      el.insertAdjacentHTML("afterbegin", `<p>navigation type: ${performance.navigation.type}</p>`)
+
       const cookies = listCookies()
 
 
