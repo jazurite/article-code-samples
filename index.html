@@ -33,11 +33,18 @@
 
       el.insertAdjacentHTML("afterbegin", `<p>navigation type: ${performance.navigation.type}</p>`)
 
+      Object.entries(sessionStorage).forEach(function ([key, value]) {
+        el.querySelector(".sessionStorage").insertAdjacentHTML("beforeend", `<li><p>${key}: ${value}</p></li>`)
+      })
+      Object.entries(localStorage).forEach(function ([key, value]) {
+        el.querySelector(".localStorage").insertAdjacentHTML("beforeend", `<li><p>${key}: ${value}</p></li>`)
+      })
+
       const cookies = listCookies()
 
 
       cookies.forEach(cookie => {
-        el.querySelector(".cookies").insertAdjacentHTML("beforeend", `<li><p>${cookie}</p></li>`)
+        // el.querySelector(".cookies").insertAdjacentHTML("beforeend", `<li><p>${cookie}</p></li>`)
       })
     })
 
@@ -58,8 +65,10 @@
 </head>
 <body>
 <div class="wrapper">
+  <ul class="sessionStorage"></ul>
+  <ul class="localStorage"></ul>
 
-  <ul class="cookies"></ul>
+  <!--  <ul class="cookies"></ul>-->
 </div>
 </body>
 </html>
